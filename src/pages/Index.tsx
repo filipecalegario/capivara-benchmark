@@ -4,9 +4,12 @@ import GithubSvgGallery from "@/components/gallery/GithubSvgGallery";
 
 const Index = () => {
   const [params] = useSearchParams();
-  const repo = params.get("repo") || ""; // expected format: owner/repo
-  const folder = params.get("path") || ""; // e.g., assets/capivara-frevo
-  const branch = params.get("branch") || "main";
+  const DEFAULT_REPO = "filipecalegario/capivara-benchmark";
+  const DEFAULT_PATH = "public/assets";
+  const DEFAULT_BRANCH = "main";
+  const repo = params.get("repo") || DEFAULT_REPO; // expected format: owner/repo
+  const folder = params.get("path") || DEFAULT_PATH; // e.g., assets/capivara-frevo
+  const branch = params.get("branch") || DEFAULT_BRANCH;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-[hsl(var(--accent))]/10">
