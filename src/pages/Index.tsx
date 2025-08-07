@@ -32,6 +32,21 @@ const Index = () => {
           </div>
         )}
 
+        <section className="mt-10">
+          <p className="text-sm text-muted-foreground text-center">
+            Quem quiser contribuir com exemplos de SVG usando outros modelos, pode adicionar o SVG na pasta public/assets do repositório{" "}
+            <a
+              href="https://github.com/filipecalegario/capivara-benchmark"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              https://github.com/filipecalegario/capivara-benchmark
+            </a>{" "}
+            e enviar um PR. As imagens são carregadas dinamicamente.
+          </p>
+        </section>
+
         <footer className="mt-12 border-t pt-6 text-center">
           <p className="text-sm text-muted-foreground">
             Inspirado no trabalho de Simon Willison, pelican riding a bike: <a
