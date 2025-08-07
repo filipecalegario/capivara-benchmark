@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -36,6 +36,39 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
     staleTime: 1000 * 60,
   });
 
+  const COOLDOWN_MS = 5 * 60 * 1000;
+  const storageKey = useMemo(() => `capivara_vote_ts:${title}`, [title]);
+  const [cooldownUntil, setCooldownUntil] = useState<number | null>(null);
+  const [now, setNow] = useState<number>(Date.now());
+
+  useEffect(() => {
+    try {
+      const saved = Number(localStorage.getItem(storageKey) ?? "");
+      if (Number.isFinite(saved) && saved > Date.now()) {
+        setCooldownUntil(saved);
+      } else {
+        setCooldownUntil(null);
+      }
+    } catch {
+      setCooldownUntil(null);
+    }
+  }, [storageKey]);
+
+  useEffect(() => {
+    if (!cooldownUntil) return;
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, [cooldownUntil]);
+
+  const inCooldown = cooldownUntil !== null && cooldownUntil > now;
+  const formatMs = (ms: number) => {
+    const total = Math.max(0, Math.ceil(ms / 1000));
+    const m = Math.floor(total / 60).toString().padStart(2, "0");
+    const s = (total % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+  };
+  const remainingLabel = inCooldown && cooldownUntil ? formatMs(cooldownUntil - now) : null;
+
   const optimisticUpdate = (delta: Partial<Counts>) => {
     const prev = qc.getQueryData<Counts>(qk) ?? { up_count: 0, down_count: 0 };
     qc.setQueryData<Counts>(qk, {
@@ -65,6 +98,9 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
     },
     onSuccess: (server) => {
       if (server) qc.setQueryData(qk, server);
+      const until = Date.now() + COOLDOWN_MS;
+      setCooldownUntil(until);
+      try { localStorage.setItem(storageKey, String(until)); } catch {}
     },
     onSettled: () => {
       qc.invalidateQueries({ queryKey: qk });
@@ -91,6 +127,9 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
     },
     onSuccess: (server) => {
       if (server) qc.setQueryData(qk, server);
+      const until = Date.now() + COOLDOWN_MS;
+      setCooldownUntil(until);
+      try { localStorage.setItem(storageKey, String(until)); } catch {}
     },
     onSettled: () => {
       qc.invalidateQueries({ queryKey: qk });
@@ -99,7 +138,7 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
 
   const up = data?.up_count ?? 0;
   const down = data?.down_count ?? 0;
-  const disabled = upMutation.isPending || downMutation.isPending;
+  const disabled = upMutation.isPending || downMutation.isPending || inCooldown;
 
   return (
     <div className="flex items-center gap-2" aria-label={`Avaliar ${title}`}>
@@ -109,7 +148,7 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
         aria-label="Curtir"
         onClick={() => upMutation.mutate()}
         disabled={disabled}
-        title="Curtir"
+        title={inCooldown ? `Aguarde ${remainingLabel} para votar novamente` : "Curtir"}
         className="group hover:bg-transparent hover:text-success"
       >
         <ThumbsUp className="size-4 transition-colors" />
@@ -121,7 +160,7 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
         aria-label="Não curtir"
         onClick={() => downMutation.mutate()}
         disabled={disabled}
-        title="Não curtir"
+        title={inCooldown ? `Aguarde ${remainingLabel} para votar novamente` : "Não curtir"}
         className="group hover:bg-transparent hover:text-destructive"
       >
         <ThumbsDown className="size-4 transition-colors" />
