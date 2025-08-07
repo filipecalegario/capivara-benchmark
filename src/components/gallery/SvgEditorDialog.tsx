@@ -83,7 +83,8 @@ export const SvgEditorDialog: React.FC<SvgEditorDialogProps> = ({
                   <Textarea
                     value={code}
                     onChange={(e) => setCode(e.target.value)}
-                    className="h-[62vh] md:h-[66vh] font-mono text-sm"
+                    className="h-[62vh] md:h-[66vh] font-mono text-sm whitespace-pre overflow-x-auto"
+                    wrap="off"
                     aria-label="Código SVG"
                   />
                 )}
