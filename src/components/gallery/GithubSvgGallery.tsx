@@ -17,24 +17,6 @@ interface GitHubContentItem {
   size: number;
 }
 
-function parseModelFromFilename(filename: string) {
-  const base = filename.replace(/\.svg$/i, "");
-  // Heuristics: prefer part after last "__" or last "-" or last "_"
-  const separators = ["__", "-", "_"]; 
-  let part = base;
-  for (const sep of separators) {
-    if (base.includes(sep)) {
-      const pieces = base.split(sep);
-      part = pieces[pieces.length - 1];
-    }
-  }
-  // Normalize spacing & casing
-  const normalized = part.replace(/[_-]+/g, " ").trim();
-  return normalized
-    .split(" ")
-    .map(w => (w.length <= 3 ? w.toUpperCase() : w[0].toUpperCase() + w.slice(1)))
-    .join(" ");
-}
 
 export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: GithubSvgGalleryProps) => {
   const [owner, repo] = ownerRepo.split("/");
@@ -103,7 +85,7 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
     <section aria-label="Galeria de SVGs de capivaras dançando frevo">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {svgs.map((item) => {
-          const modelTitle = parseModelFromFilename(item.name);
+          const modelTitle = item.name;
           const src = item.download_url ?? `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${item.path}`;
           return (
             <Card key={item.path} className="group overflow-hidden transition-transform duration-300 ease-out hover:-translate-y-1">
