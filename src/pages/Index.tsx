@@ -14,14 +14,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-[hsl(var(--accent))]/10">
       <Helmet>
-        <title>Galeria de SVGs | Capivara dançando frevo</title>
+        <title>Capivara no Frevo</title>
         <meta name="description" content="Galeria automática de SVGs gerados por modelos de linguagem: capivara dançando frevo." />
         <link rel="canonical" href={window.location.href} />
       </Helmet>
       <main className="container mx-auto px-4 py-12">
         <header className="mb-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">Crie um SVG de uma capivara dançando frevo</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Este é um sério (ahuahauhaahuahu) benchmark de avaliação de grandes modelos de linguagem. Para todas as imagens geradas foi usado o mesmo prompt: "Crie um SVG de uma capivara dançando frevo".</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">A capivara no frevo</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Este é um rigoroso benchmark (😂) para avaliação de grandes modelos de linguagem.<br/>
+Todas as imagens foram geradas a partir do mesmo prompt:<br/>
+<code>"Crie um SVG de uma capivara dançando frevo."</code></p>
+
         </header>
 
         {repo && folder ? (
@@ -32,19 +35,24 @@ const Index = () => {
           </div>
         )}
 
-        <section className="mt-10">
-          <p className="text-sm text-muted-foreground text-center">
-            Quem quiser contribuir com exemplos de SVG usando outros modelos, pode adicionar o SVG na pasta public/assets do repositório{" "}
-            <a
-              href="https://github.com/filipecalegario/capivara-benchmark"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-medium text-primary underline-offset-4 hover:underline"
-            >
-              https://github.com/filipecalegario/capivara-benchmark
-            </a>{" "}
-            e enviar um PR. As imagens são carregadas dinamicamente.
-          </p>
+        <section className="mt-12 mb-8">
+          <div className="bg-accent/20 rounded-lg p-6 border border-accent/30">
+            <h2 className="text-xl font-semibold mb-4 text-center">🤝 Contribua com o benchmark</h2>
+            <p className="text-base text-foreground text-center leading-relaxed">
+              Quer adicionar exemplos de outros modelos? <br/>Adicione seu SVG na pasta{" "}
+              <code className="bg-muted px-2 py-1 rounded text-sm font-mono">public/assets</code>{" "}
+              do repositório{" "}
+              <a
+                href="https://github.com/filipecalegario/capivara-benchmark"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-primary underline-offset-4 hover:underline"
+              >
+                capivara-benchmark
+              </a>{" "}
+              e envie um Pull Request. <br/>As imagens são carregadas automaticamente!
+            </p>
+          </div>
         </section>
 
         <footer className="mt-12 border-t pt-6 text-center">
