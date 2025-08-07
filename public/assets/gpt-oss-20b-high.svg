@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <!-- background color -->
+  <rect width="100%" height="100%" fill="#FFF2E6"/>
+
+  <!-- confetti -->
+  <circle cx="50"  cy="80"  r="3" fill="#FF6666"/>
+  <circle cx="350" cy="120" r="3" fill="#66B3FF"/>
+  <circle cx="300" cy="250" r="2" fill="#99FF99"/>
+  <circle cx="80"  cy="280" r="5" fill="#FFCC66"/>
+  <circle cx="260" cy="350" r="4" fill="#CC99FF"/>
+  <circle cx="200" cy="50"  r="3" fill="#FF99CC"/>
+  <circle cx="120" cy="200" r="4" fill="#66FF66"/>
+  <circle cx="320" cy="190" r="3" fill="#FF9933"/>
+  <circle cx="70"  cy="350" r="2" fill="#3333FF"/>
+  <circle cx="250" cy="70"  r="5" fill="#33CC33"/>
+
+  <!-- capybara body -->
+  <ellipse cx="200" cy="260" rx="70" ry="120" fill="#8B5C42"/>
+
+  <!-- capybara head -->
+  <circle cx="200" cy="140" r="35" fill="#8B5C42"/>
+
+  <!-- eyes -->
+  <circle cx="185" cy="130" r="5" fill="#000"/>
+  <circle cx="215" cy="130" r="5" fill="#000"/>
+
+  <!-- nose -->
+  <circle cx="200" cy="160" r="5" fill="#000"/>
+
+  <!-- tail -->
+  <ellipse cx="200" cy="380" rx="10" ry="20" transform="rotate(30 200 380)" fill="#8B5C42"/>
+
+  <!-- legs -->
+  <rect x="140" y="322" width="15" height="80" fill="#8B5C42" transform="rotate(-30 140 322)"/>
+  <rect x="245" y="322" width="15" height="80" fill="#8B5C42"/>
+  <rect x="120" y="290" width="15" height="90" fill="#8B5C42"/>
+  <rect x="265" y="290" width="15" height="90" fill="#8B5C42"/>
+
+  <!-- arms -->
+  <line x1="140" y1="210" x2="110" y2="250" stroke="#8B5C42" stroke-width="10" stroke-linecap="round"/>
+  <line x1="260" y1="210" x2="290" y2="250" stroke="#8B5C42" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- hat brim -->
+  <rect x="150" y="90" width="100" height="20" fill="#FFD700"/>
+
+  <!-- hat top -->
+  <rect x="170" y="70" width="60" height="70" fill="#FFD700"/>
+
+  <!-- hat feather -->
+  <polygon points="200,50 210,70 190,70" fill="#FF0000"/>
+
+  <!-- dancing swirl -->
+  <path d="M200 120 Q170 100 150 120 T200 120" fill="none" stroke="#FF33CC" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- outer swirl circle -->
+  <circle cx="200" cy="260" r="30" fill="none" stroke="#FF33CC" stroke-width="4"/>
+
+</svg>

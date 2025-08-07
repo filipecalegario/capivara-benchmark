@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Capivara dançando frevo – estilo cartoon
+  © 2025 – livre para uso, modificação e compartilhamento
+-->
+<svg
+    width="500"
+    height="500"
+    viewBox="0 0 500 500"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <!-- - Fundo - -->
+  <rect width="100%" height="100%" fill="#f4f7f9"/>
+
+  <!-- - Confete (toque do frevo) - -->
+  <g id="confetti">
+    <circle cx="80"  cy="70"  r="6" fill="#ff6f61"/>
+    <circle cx="150" cy="30"  r="5" fill="#ffce00"/>
+    <circle cx="260" cy="50"  r="7" fill="#ff6f61"/>
+    <circle cx="340" cy="20"  r="5" fill="#ffce00"/>
+    <circle cx="420" cy="80"  r="6" fill="#ff6f61"/>
+    <circle cx="120" cy="180" r="5" fill="#ffce00"/>
+    <circle cx="380" cy="150" r="6" fill="#ff6f61"/>
+    <circle cx="300" cy="120" r="5" fill="#ffce00"/>
+    <circle cx="200" cy="210" r="7" fill="#ff6f61"/>
+  </g>
+
+  <!-- - Capivara - -->
+  <g id="capybara" transform="translate(250,280) scale(1.2)">
+    <!-- Corpo -->
+    <ellipse cx="0" cy="40" rx="70" ry="45" fill="#8b5a2b"/>
+    <!-- Barriga -->
+    <ellipse cx="0" cy="45" rx="55" ry="35" fill="#c49e6d"/>
+    <!-- Cabeça -->
+    <circle cx="0" cy="-55" r="45" fill="#8b5a2b"/>
+    <!-- Orelhas -->
+    <ellipse cx="-30" cy="-95" rx="12" ry="20" fill="#8b5a2b"/>
+    <ellipse cx="30"  cy="-95" rx="12" ry="20" fill="#8b5a2b"/>
+    <!-- Olhos -->
+    <circle cx="-15" cy="-65" r="7" fill="#fff"/>
+    <circle cx="15"  cy="-65" r="7" fill="#fff"/>
+    <circle cx="-15" cy="-65" r="3" fill="#000"/>
+    <circle cx="15"  cy="-65" r="3" fill="#000"/>
+    <!-- Nariz -->
+    <ellipse cx="0" cy="-45" rx="8" ry="5" fill="#5d3c1e"/>
+    <!-- Boca (sorriso) -->
+    <path d="M -12 -35 q 12 15 24 0" stroke="#5d3c1e" stroke-width="3" fill="none"/>
+    <!-- Bigodes -->
+    <g stroke="#5d3c1e" stroke-width="2">
+      <line x1="-8"  y1="-45" x2="-30" y2="-50"/>
+      <line x1="-8"  y1="-40" x2="-30" y2="-40"/>
+      <line x1="-8"  y1="-35" x2="-30" y2="-30"/>
+      <line x1="8"   y1="-45" x2="30" y2="-50"/>
+      <line x1="8"   y1="-40" x2="30" y2="-40"/>
+      <line x1="8"   y1="-35" x2="30" y2="-30"/>
+    </g>
+
+    <!-- Braços (em movimento de dança) -->
+    <g id="arms">
+      <!-- Braço esquerdo -->
+      <path d="M -55 10
+               c -20 20,-40 30,-55 10"
+            fill="none" stroke="#8b5a2b" stroke-width="12" stroke-linecap="round"/>
+      <!-- Braço direito -->
+      <path d="M 55 10
+               c 20 -15,40 -30,55 -10"
+            fill="none" stroke="#8b5a2b" stroke-width="12" stroke-linecap="round"/>
+    </g>
+
+    <!-- Pernas (uma ligeiramente levantada) -->
+    <g id="legs">
+      <!-- Perna esquerda (firme) -->
+      <line x1="-35" y1="85" x2="-35" y2="130" stroke="#8b5a2b" stroke-width="12" stroke-linecap="round"/>
+      <!-- Perna direita (levemente levantada) -->
+      <line x1="35" y1="85" x2="45" y2="120" stroke="#8b5a2b" stroke-width="12" stroke-linecap="round"/>
+    </g>
+
+    <!-- Chapéu de frevo (coroa colorida) -->
+    <g id="hat" transform="translate(0,-95)">
+      <ellipse cx="0" cy="0" rx="55" ry="15" fill="#ff6f61"/>
+      <rect x="-50" y="-40" width="100" height="40" fill="#ffce00"/>
+      <!-- Plumas de frevo -->
+      <g stroke="#ff6f61" stroke-width="4">
+        <line x1="0" y1="-40" x2="0" y2="-70"/>
+        <line x1="-20" y1="-30" x2="-35" y2="-60"/>
+        <line x1="20" y1="-30" x2="35" y2="-60"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- - Animação (confete caindo) - -->
+  <style>
+    @keyframes fall {
+      0%   { transform: translateY(-200px) rotate(0deg); opacity:0; }
+      30%  { opacity:1; }
+      100% { transform: translateY(800px) rotate(360deg); opacity:0; }
+    }
+    #confetti > * {
+      animation: fall 4s linear infinite;
+    }
+    #confetti > *:nth-child(odd) { animation-duration:3.8s; }
+    #confetti > *:nth-child(even){ animation-duration:4.2s; }
+  </style>
+</svg>

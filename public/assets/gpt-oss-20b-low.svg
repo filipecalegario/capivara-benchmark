@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="320px" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+  <!-- Fundo -->
+  <rect width="100%" height="100%" fill="#f0f8ff"/>
+
+  <!-- Capivara -->
+  <g id="capivara" transform="translate(150, 170)">
+    <!-- Corpo -->
+    <ellipse cx="0" cy="0" rx="70" ry="40" fill="#8d6e63"/>
+    <!-- Cabeça -->
+    <ellipse cx="0" cy="-40" rx="35" ry="20" fill="#8d6e63"/>
+    <!-- Orelha -->
+    <ellipse cx="-20" cy="-55" rx="8" ry="4" fill="#8d6e63"/>
+    <!-- Olhos -->
+    <circle cx="-10" cy="-45" r="2" fill="#000"/>
+    <circle cx="10" cy="-45" r="2" fill="#000"/>
+
+    <!-- Peito de Frevo (camisa) -->
+    <path d="M-50,0 Q-25,30 0,0 Q25,30 50,0" fill="#ff6f61"/>
+    <!-- Boné -->
+    <rect x="-30" y="-68" width="60" height="10" fill="#000"/>
+    <!-- Trocadilho de sapato alto -->
+    <path d="M-40,40 Q-30,70 -20,40 Q-10,70 0,40 Q10,70 20,40 Q30,70 40,40" fill="#ff6f61"/>
+    <!-- Confete -->
+    <polygon points="-20,-20 -23,-15 -17,-10 -20,-5 -14,-3 -17,2 -13,7 -18,10 -15,15 -20,20 -12,18 -22,18 -18,23" fill="#ffd700" transform="rotate(45,0,0)"/>
+  </g>
+
+  <!-- Texto de cabeleira -->
+  <text x="160" y="40" font-family="Arial" font-size="16" fill="#000" text-anchor="middle">
+    Capivara Frevo
+  </text>
+
+</svg>

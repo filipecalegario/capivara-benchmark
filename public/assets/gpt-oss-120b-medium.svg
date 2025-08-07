@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    width="400"
+    height="400"
+    viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1">
+
+  <!-- Fundo colorido -->
+  <rect width="100%" height="100%" fill="#fff8e1"/>
+
+  <!-- Confetes -->
+  <g fill-opacity="0.8">
+    <circle cx="30"  cy="30"  r="2" fill="#ff5252"/>
+    <circle cx="170" cy="40"  r="2" fill="#ffab40"/>
+    <circle cx="50"  cy="150" r="2" fill="#ffd740"/>
+    <circle cx="150" cy="130" r="2" fill="#69f0ae"/>
+    <circle cx="120" cy="20"  r="2" fill="#40c4ff"/>
+    <circle cx="80"  cy="180" r="2" fill="#b388ff"/>
+  </g>
+
+  <!-- Guarda‑chuva (frevo) -->
+  <g transform="translate(100,30) rotate(-15)">
+    <polygon points="0,-40 -30,-10 -20,-10 -20,30 20,30 20,-10 30,-10"
+             fill="#ffeb3b" stroke="#f57c00" stroke-width="1"/>
+    <line x1="-25" y1="-20" x2="-10" y2="0" stroke="#c2185b" stroke-width="2"/>
+    <line x1="25"  y1="-20" x2="10" y2="0"  stroke="#c2185b" stroke-width="2"/>
+  </g>
+
+  <!-- Corpo da capivara -->
+  <ellipse cx="100" cy="115" rx="45" ry="30" fill="#8d6e63"/>
+
+  <!-- Cabeça -->
+  <circle cx="100" cy="80" r="22" fill="#8d6e63"/>
+  <!-- Orelhas -->
+  <ellipse cx="84"  cy="62" rx="6" ry="9" fill="#8d6e63"/>
+  <ellipse cx="116" cy="62" rx="6" ry="9" fill="#8d6e63"/>
+  <!-- Olhos -->
+  <circle cx="92" cy="78" r="3" fill="#212121"/>
+  <circle cx="108" cy="78" r="3" fill="#212121"/>
+  <!-- Nariz -->
+  <ellipse cx="100" cy="86" rx="3" ry="2" fill="#212121"/>
+  <!-- Boca sorrindo -->
+  <path d="M92,92 Q100,100 108,92" stroke="#212121" stroke-width="2" fill="none"/>
+
+  <!-- Braços (levanta‑pés) -->
+  <line x1="70"  y1="115" x2="50"  y2="80"  stroke="#8d6e63" stroke-width="8" stroke-linecap="round"/>
+  <line x1="130" y1="115" x2="150" y2="80"  stroke="#8d6e63" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Pernas em pose de dança -->
+  <line x1="80"  y1="145" x2="70"  y2="175" stroke="#8d6e63" stroke-width="8" stroke-linecap="round"/>
+  <line x1="120" y1="145" x2="130" y2="175" stroke="#8d6e63" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Detalhe da cauda -->
+  <path d="M140,125 Q150,130 152,115" stroke="#8d6e63" stroke-width="4" fill="none"/>
+
+  <!-- Bandana de frevo no pescoço -->
+  <path d="M80,95 Q100,110 120,95"
+        fill="none" stroke="#ff4081" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Texto opcional -->
+  <text x="100" y="190" text-anchor="middle" font-family="Arial" font-size="12" fill="#424242">
+    Capivara no frevo!
+  </text>
+</svg>

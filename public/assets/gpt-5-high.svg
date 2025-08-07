@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="title desc">
+    <title>Capivara dançando frevo</title>
+    <desc>Ilustração em SVG de uma capivara dançando frevo com um guarda-chuva colorido, em estilo cartunesco e com animação suave.</desc>
+    <defs>
+        <!-- Fundo suave -->
+        <radialGradient id="bg" cx="50%" cy="35%" r="75%">
+            <stop offset="0%" stop-color="#fffef9" />
+            <stop offset="70%" stop-color="#f4f8ff" />
+            <stop offset="100%" stop-color="#e8f0ff" />
+        </radialGradient> <!-- Sombra suave -->
+        <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+        </filter>
+    </defs> <!-- Fundo -->
+    <rect width="100%" height="100%" fill="url(#bg)" /> <!-- Chão / sombra -->
+    <ellipse cx="260" cy="412" rx="115" ry="18" fill="#000" opacity="0.15" filter="url(#blur)" /> <!-- Capivara + movimento -->
+    <g id="capivara" transform="translate(0,0)">
+        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-10; 0,0; 0,-5; 0,0" keyTimes="0; 0.25; 0.55; 0.75; 1" dur="2.2s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1; .42 0 .58 1; .42 0 .58 1; .42 0 .58 1" />
+        <!-- Corpo -->
+        <ellipse cx="260" cy="300" rx="122" ry="82" transform="rotate(-12 260 300)" fill="#8B5E3C" stroke="#5a3b28" stroke-width="3" />
+        <!-- Barriga -->
+        <ellipse cx="255" cy="315" rx="70" ry="45" transform="rotate(-12 255 315)" fill="#B7825C" opacity="0.6" />
+        <!-- Cabeça -->
+        <ellipse cx="350" cy="260" rx="68" ry="50" transform="rotate(-10 350 260)" fill="#8B5E3C" stroke="#5a3b28" stroke-width="3" />
+        <!-- Orelhas -->
+        <ellipse cx="330" cy="202" rx="10" ry="16" transform="rotate(-8 330 202)" fill="#7a5137" stroke="#5a3b28" stroke-width="2" />
+        <ellipse cx="362" cy="206" rx="12" ry="18" transform="rotate(-8 362 206)" fill="#7a5137" stroke="#5a3b28" stroke-width="2" />
+        <!-- Focinho -->
+        <ellipse cx="385" cy="268" rx="26" ry="18" transform="rotate(-8 385 268)" fill="#A06C4A" />
+        <ellipse cx="398" cy="265" rx="6" ry="4" fill="#3b2a20" />
+        <path d="M392 275 q6 6 14 0" stroke="#3b2a20" stroke-width="2" fill="none" stroke-linecap="round" />
+        <!-- Olho -->
+        <circle cx="366" cy="252" r="6.5" fill="#1e1d1b" />
+        <circle cx="364.5" cy="249.5" r="2" fill="#fff" opacity="0.9" />
+        <!-- Cauda -->
+        <path d="M165 315 q-12 10 5 22" stroke="#5a3b28" stroke-width="6" fill="none" stroke-linecap="round" />
+        <!-- Pernas (traços grossos arredondados para estilizar) -->
+        <!-- Traseira no chão -->
+        <path d="M215 342 C208 365, 205 385, 202 400" stroke="#7b5236" stroke-width="18" stroke-linecap="round" fill="none" />
+        <!-- Traseira em apoio -->
+        <path d="M240 348 C235 368, 232 385, 229 402" stroke="#7b5236" stroke-width="16" stroke-linecap="round" fill="none" />
+        <!-- Frontal apoiada -->
+        <path d="M295 340 C290 365, 288 383, 286 398" stroke="#7b5236" stroke-width="16" stroke-linecap="round" fill="none" />
+        <!-- Frontal erguida segurando o guarda-chuva -->
+        <path d="M308 302 Q322 273, 338 232" stroke="#7b5236" stroke-width="18" stroke-linecap="round" fill="none" />
+        <ellipse cx="338" cy="232" rx="10" ry="8" fill="#7b5236" />
+        <!-- Detalhe: lenço colorido (carnavalesco) -->
+        <path d="M290 270 C305 255, 330 248, 355 250
+         C340 268, 315 282, 292 284 Z" fill="#ffcd00" opacity="0.85" stroke="#d4a300" stroke-width="2" />
+        <path d="M293 281 L305 257 L314 279 Z" fill="#27ae60" opacity="0.95" />
+        <path d="M322 252 L346 253 L333 270 Z" fill="#e74c3c" opacity="0.95" />
+        <!-- Guarda-chuva de frevo -->
+        <g id="guarda-chuva" transform="rotate(-10 400 170)">
+            <animateTransform attributeName="transform" type="rotate" values="-14 400 170; 12 400 170; -14 400 170" dur="2.2s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1; .42 0 .58 1" />
+            <!-- Haste (alinhada com a pata) -->
+            <path d="M400 170 L338 232" stroke="#5c3b2a" stroke-width="8" stroke-linecap="round" fill="none" />
+            <circle cx="400" cy="170" r="4" fill="#3b2a20" />
+            <!-- Copa em gomos coloridos (raio 40, centro 400,170) -->
+            <path d="M400 170 L436.96 154.69 A40 40 0 0 1 436.96 185.31 Z" fill="#e74c3c" stroke="#2d2d2d" stroke-width="1.5" />
+            <path d="M400 170 L436.96 185.31 A40 40 0 0 1 415.31 206.96 Z" fill="#f1c40f" stroke="#2d2d2d" stroke-width="1.5" />
+            <path d="M400 170 L415.31 206.96 A40 40 0 0 1 384.69 206.96 Z" fill="#27ae60" stroke="#2d2d2d" stroke-width="1.5" />
+            <path d="M400 170 L384.69 206.96 A40 40 0 0 1 363.04 185.31 Z" fill="#3498db" stroke="#2d2d2d" stroke-width="1.5" />
+            <path d="M400 170 L363.04 185.31 A40 40 0 0 1 363.04 154.69 Z" fill="#9b59b6" stroke="#2d2d2d" stroke-width="1.5" />
+            <path d="M400 170 L363.04 154.69 A40 40 0 0 1 384.69 133.04 Z" fill="#e67e22" stroke="#2d2d2d" stroke-width="1.5" />
+            <path d="M400 170 L384.69 133.04 A40 40 0 0 1 415.31 133.04 Z" fill="#16a085" stroke="#2d2d2d" stroke-width="1.5" />
+            <path d="M400 170 L415.31 133.04 A40 40 0 0 1 436.96 154.69 Z" fill="#ff6699" stroke="#2d2d2d" stroke-width="1.5" />
+            <!-- Aro -->
+            <circle cx="400" cy="170" r="40" fill="none" stroke="#2d2d2d" stroke-width="2" />
+            <!-- Ponteiras decorativas -->
+            <circle cx="436.96" cy="154.69" r="3" fill="#2d2d2d" />
+            <circle cx="436.96" cy="185.31" r="3" fill="#2d2d2d" />
+            <circle cx="415.31" cy="206.96" r="3" fill="#2d2d2d" />
+            <circle cx="384.69" cy="206.96" r="3" fill="#2d2d2d" />
+            <circle cx="363.04" cy="185.31" r="3" fill="#2d2d2d" />
+            <circle cx="363.04" cy="154.69" r="3" fill="#2d2d2d" />
+            <circle cx="384.69" cy="133.04" r="3" fill="#2d2d2d" />
+            <circle cx="415.31" cy="133.04" r="3" fill="#2d2d2d" />
+        </g>
+        <!-- Linhas de movimento (frevo!) -->
+        <g opacity="0.7" stroke="#3d71b4" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M190 405 q20 -8 40 0">
+                <animate attributeName="opacity" values="0;1;0" dur="1.4s" repeatCount="indefinite" />
+            </path>
+            <path d="M300 405 q22 -10 44 0" stroke="#e4572e">
+                <animate attributeName="opacity" values="0;1;0" dur="1.4s" begin="0.35s" repeatCount="indefinite" />
+            </path>
+        </g>
+        <!-- Confetes -->
+        <g>
+            <rect x="120" y="95" width="8" height="14" fill="#e74c3c" transform="rotate(18 124 102)" />
+            <rect x="160" y="130" width="6" height="12" fill="#2ecc71" transform="rotate(-25 163 136)" />
+            <rect x="95" y="165" width="7" height="11" fill="#3498db" transform="rotate(12 98 171)" />
+            <rect x="430" y="95" width="6" height="12" fill="#f1c40f" transform="rotate(-12 433 101)" />
+            <rect x="420" y="220" width="7" height="11" fill="#9b59b6" transform="rotate(22 423 226)" />
+            <rect x="90" y="240" width="8" height="14" fill="#16a085" transform="rotate(-18 94 247)" />
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+    <title id="title">Capivara dançando frevo</title>
+    <desc id="desc">Ilustração em SVG de uma capivara sorridente dançando frevo e segurando um guarda-chuva colorido, com confetes ao fundo.</desc>
+    <defs>
+        <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#fff7e6" />
+            <stop offset="100%" stop-color="#e6f7ff" />
+        </linearGradient>
+        <linearGradient id="furShade" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#a66d4b" />
+            <stop offset="100" stop-color="#8e5d40" />
+        </linearGradient>
+        <linearGradient id="bellyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#c58a68" />
+            <stop offset="1" stop-color="#b98163" />
+        </linearGradient>
+        <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.7" />
+        </filter>
+    </defs> <!-- Fundo suave -->
+    <rect width="100%" height="100%" fill="url(#bgGrad)" /> <!-- Confetes ao fundo -->
+    <g opacity="0.9">
+        <rect x="90" y="80" width="10" height="18" fill="#ff595e" transform="rotate(20 95 89)" />
+        <rect x="140" y="120" width="8" height="14" fill="#1982c4" transform="rotate(-30 144 127)" />
+        <rect x="200" y="60" width="12" height="16" fill="#ffca3a" transform="rotate(10 206 68)" />
+        <polygon points="250,140 260,150 245,158" fill="#8ac926" />
+        <polygon points="320,90 330,98 315,105" fill="#ff595e" />
+        <rect x="370" y="70" width="9" height="15" fill="#6a4c93" transform="rotate(35 374 78)" />
+        <polygon points="430,120 445,125 435,138" fill="#ffca3a" />
+        <rect x="500" y="60" width="8" height="18" fill="#1982c4" transform="rotate(-18 504 69)" />
+        <polygon points="560,100 575,110 560,120" fill="#ff595e" />
+        <rect x="610" y="130" width="10" height="14" fill="#8ac926" transform="rotate(28 615 137)" />
+        <polygon points="680,80 695,90 680,100" fill="#ffca3a" />
+        <rect x="720" y="120" width="9" height="16" fill="#6a4c93" transform="rotate(-25 724 128)" />
+        <rect x="120" y="220" width="9" height="14" fill="#8ac926" transform="rotate(-12 124 227)" />
+        <polygon points="200,240 210,252 195,255" fill="#1982c4" />
+        <rect x="260" y="210" width="8" height="15" fill="#ff595e" transform="rotate(18 264 218)" />
+        <polygon points="330,230 345,235 330,245" fill="#ffca3a" />
+        <rect x="390" y="200" width="9" height="16" fill="#6a4c93" transform="rotate(-30 394 208)" />
+        <polygon points="450,230 465,240 450,250" fill="#1982c4" />
+        <rect x="520" y="210" width="10" height="14" fill="#ff595e" transform="rotate(22 525 217)" />
+        <polygon points="590,240 605,245 595,260" fill="#8ac926" />
+        <rect x="660" y="210" width="8" height="16" fill="#ffca3a" transform="rotate(-15 664 218)" />
+    </g> <!-- Sombra no chão -->
+    <ellipse cx="420" cy="500" rx="160" ry="28" fill="#000" opacity="0.12" filter="url(#soft)" /> <!-- Capivara dançando -->
+    <g id="capivara" transform="rotate(-6 420 320)">
+        <!-- Cauda -->
+        <path d="M305,340 C280,332 276,318 300,308" fill="none" stroke="#6b4430" stroke-width="10" stroke-linecap="round" opacity="0.6" />
+        <!-- Corpo -->
+        <ellipse cx="420" cy="340" rx="150" ry="105" fill="url(#furShade)" stroke="#6b4430" stroke-width="3" />
+        <!-- Barriga -->
+        <path d="M365,315 C405,300 455,305 485,340 C500,360 495,390 465,405 C430,423 390,418 370,395 C350,370 345,330 365,315 Z" fill="url(#bellyGrad)" opacity="0.9" />
+        <!-- Orelha atrás -->
+        <ellipse cx="520" cy="240" rx="20" ry="16" fill="#8e5d40" stroke="#6b4430" stroke-width="2" transform="rotate(-10 520 240)" />
+        <!-- Cabeça -->
+        <ellipse cx="540" cy="280" rx="85" ry="60" fill="url(#furShade)" stroke="#6b4430" stroke-width="3" />
+        <!-- Focinho -->
+        <path d="M585,275 C610,272 610,290 585,296 C575,300 562,298 552,292 C560,288 570,282 585,275 Z" fill="#8e5d40" stroke="#6b4430" stroke-width="2" />
+        <!-- Nariz -->
+        <ellipse cx="595" cy="285" rx="8" ry="6" fill="#3a2a22" />
+        <!-- Boca -->
+        <path d="M560,305 C570,315 585,312 592,305" stroke="#3a2a22" stroke-width="3" fill="none" stroke-linecap="round" />
+        <!-- Olho -->
+        <circle cx="565" cy="275" r="6.5" fill="#1e1e1e" />
+        <circle cx="567" cy="273" r="2" fill="#fff" opacity="0.9" />
+        <!-- Braço erguido (segurando o frevo) -->
+        <path d="M505,305 C555,265 595,225 630,185" fill="none" stroke="#8e5d40" stroke-width="24" stroke-linecap="round" />
+        <!-- Patinha mão -->
+        <ellipse cx="635" cy="178" rx="13" ry="10" fill="#8e5d40" stroke="#6b4430" stroke-width="2" />
+        <path d="M641,174 L650,170 M639,178 L648,175 M641,182 L650,181" stroke="#6b4430" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+        <!-- Braço para baixo -->
+        <path d="M430,325 C400,355 390,380 398,405" fill="none" stroke="#8e5d40" stroke-width="26" stroke-linecap="round" />
+        <!-- Patinha -->
+        <ellipse cx="402" cy="414" rx="14" ry="11" fill="#8e5d40" stroke="#6b4430" stroke-width="2" />
+        <!-- Perna de apoio -->
+        <path d="M420,390 C395,430 380,455 392,480" fill="none" stroke="#8e5d40" stroke-width="28" stroke-linecap="round" />
+        <ellipse cx="400" cy="488" rx="26" ry="12" fill="#6b4430" opacity="0.8" />
+        <!-- Perna levantada -->
+        <path d="M470,395 C505,375 525,372 545,385 C555,392 552,410 542,420" fill="none" stroke="#8e5d40" stroke-width="28" stroke-linecap="round" />
+        <ellipse cx="535" cy="430" rx="26" ry="12" fill="#6b4430" opacity="0.8" />
+        <!-- Linhas de movimento -->
+        <path d="M552,440 Q570,425 588,435" stroke="#6b4430" stroke-width="3" fill="none" opacity="0.5" />
+        <path d="M635,150 Q660,130 690,138" stroke="#6b4430" stroke-width="3" fill="none" opacity="0.5" />
+        <!-- Guarda-chuva de frevo -->
+        <g id="frevo" stroke="#1e1e1e" stroke-width="3">
+            <!-- Cabo -->
+            <path d="M635,178 C640,173 647,166 655,158" fill="none" stroke="#2b2b2b" stroke-width="5" stroke-linecap="round" />
+            <path d="M628,192 C630,182 632,175 635,170" fill="none" stroke="#2b2b2b" stroke-width="6" stroke-linecap="round" />
+            <circle cx="626" cy="197" r="5.5" fill="#2b2b2b" />
+            <!-- Copa multicolor -->
+            <!-- Centro -->
+            <circle cx="655" cy="155" r="6" fill="#1e1e1e" />
+            <!-- Bordas da copa (pontos no raio ~55) -->
+            <!-- Segmentos (oito gomos) -->
+            <polygon points="655,155 710,155 694,194" fill="#ff3b30" />
+            <polygon points="655,155 694,194 655,210" fill="#ffcc00" />
+            <polygon points="655,155 655,210 616,194" fill="#34c759" />
+            <polygon points="655,155 616,194 600,155" fill="#007aff" />
+            <polygon points="655,155 600,155 616,116" fill="#ff3b30" />
+            <polygon points="655,155 616,116 655,100" fill="#ffcc00" />
+            <polygon points="655,155 655,100 694,116" fill="#34c759" />
+            <polygon points="655,155 694,116 710,155" fill="#007aff" />
+            <!-- Contorno externo da copa -->
+            <path d="M710,155 Q702,182 694,194 Q675,206 655,210 Q635,206 616,194 Q608,182 600,155 Q608,128 616,116 Q635,104 655,100 Q675,104 694,116 Q702,128 710,155 Z" fill="none" />
+            <!-- Franjas -->
+            <g stroke="#1e1e1e" stroke-width="2" stroke-linecap="round">
+                <line x1="702" y1="155" x2="715" y2="155" />
+                <line x1="694" y1="194" x2="704" y2="205" />
+                <line x1="655" y1="210" x2="655" y2="224" />
+                <line x1="616" y1="194" x2="606" y2="205" />
+                <line x1="600" y1="155" x2="587" y2="155" />
+                <line x1="616" y1="116" x2="606" y2="105" />
+                <line x1="655" y1="100" x2="655" y2="86" />
+                <line x1="694" y1="116" x2="704" y2="105" />
+            </g>
+        </g>
+    </g>
+</svg>
