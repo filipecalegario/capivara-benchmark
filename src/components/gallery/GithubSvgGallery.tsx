@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import RatingButtons from "./RatingButtons";
 import { supabase } from "@/integrations/supabase/client";
+import SvgEditorDialog from "./SvgEditorDialog";
 
 interface GithubSvgGalleryProps {
   ownerRepo: string; // format: "owner/repo"
@@ -175,7 +176,11 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
     });
   }, [svgs, countsMap]);
 
-  const [initialSortedSvgs, setInitialSortedSvgs] = useState<GitHubContentItem[] | null>(null);
+const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
+const [selectedUrl, setSelectedUrl] = useState<string | null>(null);
+const [editorOpen, setEditorOpen] = useState(false);
+
+const [initialSortedSvgs, setInitialSortedSvgs] = useState<GitHubContentItem[] | null>(null);
 
   useEffect(() => {
     if (initialSortedSvgs === null && svgs.length) {
@@ -227,7 +232,16 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
           const src = `/assets/${item.name}`;
           return (
             <Card key={item.path} className="group overflow-hidden transition-transform duration-300 ease-out hover:-translate-y-1">
-              <CardContent className="p-0 bg-gradient-to-b from-[hsl(var(--accent))]/10 to-transparent relative">
+              <CardContent 
+                className="p-0 bg-gradient-to-b from-[hsl(var(--accent))]/10 to-transparent relative cursor-pointer"
+                onClick={() => {
+                  setSelectedTitle(modelTitle);
+                  const fallback = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${item.path}`;
+                  setSelectedUrl(item.download_url ?? fallback);
+                  setEditorOpen(true);
+                }}
+                aria-label={`Abrir editor para ${modelTitle}`}
+              >
                 <RetryImage
                   src={src}
                   alt={`SVG da capivara dançando frevo - ${modelTitle}`}
@@ -246,6 +260,12 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
           );
         })}
       </div>
+      <SvgEditorDialog
+        open={editorOpen}
+        onOpenChange={setEditorOpen}
+        title={selectedTitle ?? ""}
+        downloadUrl={selectedUrl}
+      />
     </section>
   );
 };
