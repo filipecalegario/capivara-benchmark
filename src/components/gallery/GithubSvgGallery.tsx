@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import RatingButtons from "./RatingButtons";
@@ -175,6 +175,17 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
     });
   }, [svgs, countsMap]);
 
+  const [initialSortedSvgs, setInitialSortedSvgs] = useState<GitHubContentItem[] | null>(null);
+
+  useEffect(() => {
+    if (initialSortedSvgs === null && svgs.length) {
+      // Aguarda a primeira resolução de capCounts (definida ou array vazio)
+      if (capCounts !== undefined) {
+        setInitialSortedSvgs(sortedSvgs);
+      }
+    }
+  }, [capCounts, sortedSvgs, svgs, initialSortedSvgs]);
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -211,7 +222,7 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
   return (
     <section aria-label="Galeria de SVGs de capivaras dançando frevo">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {sortedSvgs.map((item) => {
+        {(initialSortedSvgs ?? sortedSvgs).map((item) => {
           const modelTitle = item.name.replace(/\.svg$/i, "");
           const src = `/assets/${item.name}`;
           return (
