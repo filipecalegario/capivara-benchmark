@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -16,6 +16,92 @@ interface GitHubContentItem {
   download_url: string | null;
   size: number;
 }
+
+interface RetryImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  owner: string;
+  repo: string;
+  branch: string;
+  path: string;
+}
+
+const RetryImage = ({ src, alt, className, owner, repo, branch, path }: RetryImageProps) => {
+  const [currentSrc, setCurrentSrc] = useState(src);
+  const [retryCount, setRetryCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  // URLs alternativas para tentar
+  const getAlternativeUrls = () => [
+    src, // URL original (download_url ou raw.githubusercontent.com)
+    `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`,
+    `https://github.com/${owner}/${repo}/raw/${branch}/${path}`,
+  ];
+
+  const handleError = () => {
+    const urls = getAlternativeUrls();
+    if (retryCount < urls.length - 1) {
+      const nextRetry = retryCount + 1;
+      setRetryCount(nextRetry);
+      setCurrentSrc(urls[nextRetry]);
+      // Não precisa definir isLoading aqui, pois a imagem vai tentar carregar automaticamente
+    } else {
+      setHasError(true);
+      setIsLoading(false);
+    }
+  };
+
+  const handleLoad = () => {
+    setIsLoading(false);
+    setHasError(false);
+  };
+
+  if (hasError) {
+    return (
+      <div className={`${className} flex items-center justify-center bg-muted text-muted-foreground`}>
+        <div className="text-center p-4">
+          <p className="text-sm mb-2">❌ Falha ao carregar</p>
+          <button
+            onClick={() => {
+              setRetryCount(0);
+              setHasError(false);
+              setIsLoading(true);
+              setCurrentSrc(getAlternativeUrls()[0]);
+            }}
+            className="text-xs text-primary hover:underline"
+          >
+            Tentar novamente
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {isLoading && (
+        <div className={`${className} flex items-center justify-center bg-muted absolute inset-0 z-10`}>
+          <div className="text-center">
+            <Skeleton className="h-8 w-8 rounded-full mx-auto mb-2" />
+            <p className="text-xs text-muted-foreground">
+              Tentativa {retryCount + 1} de {getAlternativeUrls().length}
+            </p>
+          </div>
+        </div>
+      )}
+      <img
+        src={currentSrc}
+        alt={alt}
+        className={className}
+        loading="lazy"
+        onLoad={handleLoad}
+        onError={handleError}
+      />
+    </>
+  );
+};
 
 
 export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: GithubSvgGalleryProps) => {
@@ -40,7 +126,7 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
   });
 
   const svgs = useMemo(() => {
-    const arr = Array.isArray(data) ? data : (data as any)?.items || [];
+    const arr = Array.isArray(data) ? data : (data as { items: GitHubContentItem[] })?.items || [];
     const files = (arr as GitHubContentItem[]).filter(
       (it) => it.type === "file" && /\.svg$/i.test(it.name)
     );
@@ -89,12 +175,15 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
           const src = item.download_url ?? `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${item.path}`;
           return (
             <Card key={item.path} className="group overflow-hidden transition-transform duration-300 ease-out hover:-translate-y-1">
-              <CardContent className="p-0 bg-gradient-to-b from-[hsl(var(--accent))]/10 to-transparent">
-                <img
+              <CardContent className="p-0 bg-gradient-to-b from-[hsl(var(--accent))]/10 to-transparent relative">
+                <RetryImage
                   src={src}
                   alt={`SVG da capivara dançando frevo - ${modelTitle}`}
-                  loading="lazy"
                   className="w-full h-56 object-contain bg-background"
+                  owner={owner}
+                  repo={repo}
+                  branch={branch}
+                  path={item.path}
                 />
               </CardContent>
               <CardFooter className="flex items-center justify-between p-4 border-t">
