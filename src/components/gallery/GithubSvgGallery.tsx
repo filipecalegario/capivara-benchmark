@@ -188,11 +188,8 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
                 />
               </CardContent>
               <CardFooter className="flex items-center justify-between p-4 border-t">
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-medium text-foreground">{modelTitle}</span>
-                  <RatingButtons title={modelTitle} />
-                </div>
-                <span className="text-xs text-muted-foreground">SVG</span>
+                <span className="text-sm font-medium text-foreground">{modelTitle}</span>
+                <RatingButtons title={modelTitle} />
               </CardFooter>
             </Card>
           );

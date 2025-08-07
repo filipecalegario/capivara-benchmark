@@ -110,8 +110,9 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
         onClick={() => upMutation.mutate()}
         disabled={disabled}
         title="Curtir"
+        className="group hover:bg-transparent hover:text-success"
       >
-        <ThumbsUp className="size-4" />
+        <ThumbsUp className="size-4 transition-colors" />
         <span className="text-xs tabular-nums">{up}</span>
       </Button>
       <Button
@@ -121,8 +122,9 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
         onClick={() => downMutation.mutate()}
         disabled={disabled}
         title="Não curtir"
+        className="group hover:bg-transparent hover:text-destructive"
       >
-        <ThumbsDown className="size-4" />
+        <ThumbsDown className="size-4 transition-colors" />
         <span className="text-xs tabular-nums">{down}</span>
       </Button>
     </div>
