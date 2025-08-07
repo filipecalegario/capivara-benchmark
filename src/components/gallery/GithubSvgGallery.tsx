@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import RatingButtons from "./RatingButtons";
 
 interface GithubSvgGalleryProps {
   ownerRepo: string; // format: "owner/repo"
@@ -187,7 +188,10 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
                 />
               </CardContent>
               <CardFooter className="flex items-center justify-between p-4 border-t">
-                <span className="text-sm font-medium text-foreground">{modelTitle}</span>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium text-foreground">{modelTitle}</span>
+                  <RatingButtons title={modelTitle} />
+                </div>
                 <span className="text-xs text-muted-foreground">SVG</span>
               </CardFooter>
             </Card>

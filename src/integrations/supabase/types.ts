@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      capivara: {
+        Row: {
+          created_at: string
+          down_count: number
+          id: string
+          title: string
+          up_count: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          down_count?: number
+          id?: string
+          title: string
+          up_count?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          down_count?: number
+          id?: string
+          title?: string
+          up_count?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       flashcards: {
         Row: {
           answer: string
@@ -114,7 +141,20 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      capivara_increment_down: {
+        Args: { p_title: string }
+        Returns: {
+          up_count: number
+          down_count: number
+        }[]
+      }
+      capivara_increment_up: {
+        Args: { p_title: string }
+        Returns: {
+          up_count: number
+          down_count: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
