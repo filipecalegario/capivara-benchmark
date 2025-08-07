@@ -20,8 +20,8 @@ const Index = () => {
       </Helmet>
       <main className="container mx-auto px-4 py-12">
         <header className="mb-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">Galeria de SVGs: Capivara dançando frevo</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Coloque seus SVGs públicos em uma pasta do GitHub e use os parâmetros repo, path e branch na URL para carregá-los automaticamente. Ex.: ?repo=owner/repo&path=svgs&branch=main</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">Crie um SVG de uma capivara dançando frevo</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Este é um sério (ahuahauhaahuahu) benchmark de avaliação de grandes modelos de linguagem. Para todas as imagens geradas foi usado o mesmo prompt: "Crie um SVG de uma capivara dançando frevo".</p>
         </header>
 
         {repo && folder ? (
@@ -31,6 +31,8 @@ const Index = () => {
             <p className="text-muted-foreground">Para começar, adicione parâmetros à URL: repo=owner/repo e path=caminho/da/pasta. Opcional: branch.</p>
           </div>
         )}
+        
+
       </main>
     </div>
   );
