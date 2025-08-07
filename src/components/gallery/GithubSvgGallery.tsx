@@ -172,7 +172,7 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {svgs.map((item) => {
           const modelTitle = item.name.replace(/\.svg$/i, "");
-          const src = item.download_url ?? `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${item.path}`;
+          const src = `/assets/${item.name}`;
           return (
             <Card key={item.path} className="group overflow-hidden transition-transform duration-300 ease-out hover:-translate-y-1">
               <CardContent className="p-0 bg-gradient-to-b from-[hsl(var(--accent))]/10 to-transparent relative">
