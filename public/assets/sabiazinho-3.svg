@@ -1,0 +1,29 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <title>Capivara Frevo</title>
+  <desc>Um exemplo simplificado de uma capivara.</desc>
+  <rect x="10" y="10" width="180" height="180" rx="20" fill="tan"/>
+  <!-- Corpo da capivara -->
+  
+  <!-- Cabeça -->
+  <circle cx="50" cy="50" r="20" fill="beige"/>
+  <circle cx="45" cy="45" r="3" fill="black"/>
+  <circle cx="55" cy="45" r="3" fill="black"/>
+  
+  <!-- Nariz -->
+  <circle cx="50" cy="60" r="4" fill="pink"/>
+  
+  <!-- Orelhas -->
+  <path d="M 30 40 Q 35 35 40 40 T 50 50" fill="tan"/>
+  <path d="M 70 40 Q 65 35 60 40 T 50 50" fill="tan" transform=" reflectionX "/>
+  
+  <!-- Rabo -->
+  <path d="M 170 140 Q 175 155 170 170" fill="tan"/>
+  
+  <!-- Pernas -->
+  <path d="M 30 120 Q 30 130 40 130 Q 50 130 50 120" fill="tan"/>
+  <path d="M 130 120 Q 130 130 120 130 Q 110 130 110 120" fill="tan"/>
+  
+  <!-- Mãos no ar para o frevo (simplificadas) -->
+  <line x1="50" y1="90" x2="70" y2="70" stroke="tan" stroke-width="2"/>
+  <line x1="150" y1="90" x2="130" y2="70" stroke="tan" stroke-width="2"/>
+</svg>

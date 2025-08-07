@@ -1,0 +1,19 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Corpo da capivara -->
+  <ellipse cx="100" cy="150" rx="50" ry="70" fill="#A9A9A9" />
+  <!-- Cabeça da capivara -->
+  <circle cx="100" cy="100" r="20" fill="#A9A9A9" />
+  <!-- Olhos -->
+  <circle cx="85" cy="90" r="3" fill="black" />
+  <circle cx="115" cy="90" r="3" fill="black" />
+  <!-- Orelhas -->
+  <polygon points="80,70 90,80 80,90" fill="#A9A9A9" />
+  <polygon points="120,70 110,80 120,90" fill="#A9A9A9" />
+  <!-- Rabo -->
+  <circle cx="150" cy="150" r="5" fill="#A9A9A9" />
+  <!-- Pés -->
+  <rect x="60" y="190" width="20" height="10" fill="#A9A9A9" />
+  <rect x="120" y="190" width="20" height="10" fill="#A9A9A9" />
+  
+  <!-- Aqui poderiam ser adicionadas as animações para dar a impressão de dança -->
+</svg>

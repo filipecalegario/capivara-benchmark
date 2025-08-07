@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="chao" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5D9C0A"/>
+      <stop offset="100%" stop-color="#78C257"/>
+    </linearGradient>
+    <radialGradient id="sombrinha" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FF1F8F"/>
+      <stop offset="30%" stop-color="#FFD500"/>
+      <stop offset="60%" stop-color="#00C2FF"/>
+      <stop offset="100%" stop-color="#9200FF"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Fundo -->
+  <rect width="100%" height="100%" fill="#87CEEB"/>
+  
+  <!-- Chão -->
+  <rect x="0" y="320" width="400" height="80" fill="url(#chao)"/>
+  
+  <!-- Corpo da capivara -->
+  <ellipse cx="200" cy="250" rx="60" ry="40" fill="#8B4513" stroke="#5D4037" stroke-width="2"/>
+  
+  <!-- Cabeça -->
+  <ellipse cx="200" cy="190" rx="35" ry="30" fill="#8B4513" stroke="#5D4037" stroke-width="2"/>
+  
+  <!-- Orelhas -->
+  <ellipse cx="170" cy="180" rx="10" ry="15" fill="#5D4037" transform="rotate(-20 170 180)"/>
+  <ellipse cx="230" cy="180" rx="10" ry="15" fill="#5D4037" transform="rotate(20 230 180)"/>
+  
+  <!-- Olhos -->
+  <circle cx="185" cy="185" r="4" fill="#000"/>
+  <circle cx="215" cy="185" r="4" fill="#000"/>
+  
+  <!-- Nariz -->
+  <ellipse cx="200" cy="205" rx="10" ry="7" fill="#5D4037"/>
+  
+  <!-- Patas -->
+  <rect x="150" y="250" width="15" height="70" rx="7" fill="#8B4513" transform="rotate(10 150 250)"/>
+  <rect x="235" y="250" width="15" height="70" rx="7" fill="#8B4513" transform="rotate(-10 235 250)"/>
+  
+  <!-- Pata dianteira levantada -->
+  <path d="M170 220 Q180 150, 210 130" stroke="#8B4513" stroke-width="14" fill="none" stroke-linecap="round"/>
+  
+  <!-- Rabo -->
+  <path d="M130 250 Q110 230, 100 240" stroke="#8B4513" stroke-width="8" fill="none"/>
+  
+  <!-- Sombrinha de frevo -->
+  <circle cx="210" cy="130" r="40" fill="url(#sombrinha)"/>
+  <rect x="209" y="130" width="3" height="80" fill="#654321"/>
+  
+  <!-- Movimento de dança -->
+  <path d="M200 320 Q220 300, 240 320" stroke="#FFF" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.7"/>
+  <path d="M160 320 Q140 300, 120 320" stroke="#FFF" stroke-width="3" fill="none" stroke-dasharray="8,4" opacity="0.7"/>
+  
+  <!-- Detalhes faciais -->
+  <ellipse cx="200" cy="200" rx="2" ry="4" fill="#FFF" transform="rotate(30 200 200)"/>
+</svg>
