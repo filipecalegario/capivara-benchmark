@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import RatingButtons from "./RatingButtons";
+import { supabase } from "@/integrations/supabase/client";
 
 interface GithubSvgGalleryProps {
   ownerRepo: string; // format: "owner/repo"
@@ -131,9 +132,48 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
     const files = (arr as GitHubContentItem[]).filter(
       (it) => it.type === "file" && /\.svg$/i.test(it.name)
     );
-    // Sort by name for stable order
+    // Sort by name for stable order (fallback)
     return files.sort((a, b) => a.name.localeCompare(b.name));
   }, [data]);
+
+  // Extract titles (filename without .svg)
+  const titles = useMemo(() => svgs.map((it) => it.name.replace(/\.svg$/i, "")), [svgs]);
+
+  // Fetch up_count for all titles at once
+  const { data: capCounts } = useQuery<{ title: string; up_count: number }[], Error>({
+    queryKey: ["capivara-counts", titles],
+    queryFn: async () => {
+      if (!titles.length) return [];
+      const { data, error } = await supabase
+        .from("capivara" as any)
+        .select("title, up_count")
+        .in("title", titles);
+      if (error) throw error;
+      return (data as any) as { title: string; up_count: number }[];
+    },
+    enabled: titles.length > 0,
+    staleTime: 1000 * 60,
+  });
+
+  const countsMap = useMemo(() => {
+    const map: Record<string, number> = {};
+    (capCounts ?? []).forEach((r) => {
+      map[r.title] = r.up_count ?? 0;
+    });
+    return map;
+  }, [capCounts]);
+
+  const sortedSvgs = useMemo(() => {
+    // Sort by up_count desc, then by name asc
+    return [...svgs].sort((a, b) => {
+      const ta = a.name.replace(/\.svg$/i, "");
+      const tb = b.name.replace(/\.svg$/i, "");
+      const ca = countsMap[ta] ?? 0;
+      const cb = countsMap[tb] ?? 0;
+      if (cb !== ca) return cb - ca;
+      return a.name.localeCompare(b.name);
+    });
+  }, [svgs, countsMap]);
 
   if (isLoading) {
     return (
@@ -171,7 +211,7 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
   return (
     <section aria-label="Galeria de SVGs de capivaras dançando frevo">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {svgs.map((item) => {
+        {sortedSvgs.map((item) => {
           const modelTitle = item.name.replace(/\.svg$/i, "");
           const src = `/assets/${item.name}`;
           return (

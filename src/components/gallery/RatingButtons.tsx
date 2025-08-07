@@ -68,6 +68,7 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
     },
     onSettled: () => {
       qc.invalidateQueries({ queryKey: qk });
+      qc.invalidateQueries({ queryKey: ["capivara-counts"] });
     },
   });
 
@@ -94,6 +95,7 @@ const RatingButtons = ({ title }: RatingButtonsProps) => {
     },
     onSettled: () => {
       qc.invalidateQueries({ queryKey: qk });
+      qc.invalidateQueries({ queryKey: ["capivara-counts"] });
     },
   });
 
