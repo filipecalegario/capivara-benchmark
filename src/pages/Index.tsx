@@ -31,8 +31,19 @@ const Index = () => {
             <p className="text-muted-foreground">Para começar, adicione parâmetros à URL: repo=owner/repo e path=caminho/da/pasta. Opcional: branch.</p>
           </div>
         )}
-        
 
+        <footer className="mt-12 border-t pt-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            Inspirado no trabalho de Simon Willison, pelican riding a bike: <a
+              href="https://simonwillison.net/2025/Jun/6/six-months-in-llms/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary underline-offset-4 hover:underline"
+            >
+              https://simonwillison.net/2025/Jun/6/six-months-in-llms/
+            </a>
+          </p>
+        </footer>
       </main>
     </div>
   );
