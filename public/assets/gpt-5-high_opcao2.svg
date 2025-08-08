@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Capivara dançando frevo</title>
+  <desc id="desc">Uma capivara animada dançando frevo com sombrinha colorida, confetes e figurino festivo.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#e6f2ff"/>
+    </linearGradient>
+
+    <clipPath id="umbrellaClip">
+      <circle cx="0" cy="0" r="58"/>
+    </clipPath>
+
+    <style>
+      /* Animações */
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes sway {
+        0%, 100% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
+      }
+      @keyframes stepA {
+        0%, 100% { transform: rotate(8deg); }
+        50% { transform: rotate(-12deg); }
+      }
+      @keyframes stepB {
+        0%, 100% { transform: rotate(-10deg); }
+        50% { transform: rotate(12deg); }
+      }
+      @keyframes confettiFall {
+        0% { transform: translateY(-20px) rotate(0deg); opacity: 0.9; }
+        100% { transform: translateY(320px) rotate(360deg); opacity: 0.9; }
+      }
+      .anim-bounce, .anim-sway, .anim-stepA, .anim-stepB, .anim-fall {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      .anim-bounce { animation: bounce 1s ease-in-out infinite; }
+      .anim-sway { animation: sway 0.9s ease-in-out infinite; }
+      .anim-stepA { animation: stepA 0.45s ease-in-out infinite; }
+      .anim-stepB { animation: stepB 0.45s ease-in-out infinite; }
+      .anim-fall { animation: confettiFall 2.8s linear infinite; }
+    </style>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <ellipse cx="260" cy="430" rx="180" ry="26" fill="#cfd8dc" opacity="0.55"/>
+
+  <!-- Confetes -->
+  <g opacity="0.9">
+    <g class="anim-fall" style="animation-delay:0s"><circle cx="60" cy="80" r="4" fill="#f44336"/></g>
+    <g class="anim-fall" style="animation-delay:0.3s"><rect x="110" y="60" width="6" height="6" fill="#4caf50" transform="rotate(20 113 63)"/></g>
+    <g class="anim-fall" style="animation-delay:0.6s"><polygon points="160,70 166,82 154,82" fill="#2196f3"/></g>
+    <g class="anim-fall" style="animation-delay:0.9s"><circle cx="210" cy="65" r="3.5" fill="#ffeb3b"/></g>
+    <g class="anim-fall" style="animation-delay:1.2s"><rect x="260" y="55" width="6" height="6" fill="#9c27b0" transform="rotate(-15 263 58)"/></g>
+    <g class="anim-fall" style="animation-delay:1.5s"><polygon points="310,85 316,97 304,97" fill="#ff9800"/></g>
+    <g class="anim-fall" style="animation-delay:1.8s"><circle cx="360" cy="75" r="4" fill="#00bcd4"/></g>
+    <g class="anim-fall" style="animation-delay:2.1s"><rect x="410" y="65" width="6" height="6" fill="#8bc34a" transform="rotate(30 413 68)"/></g>
+    <g class="anim-fall" style="animation-delay:2.4s"><polygon points="460,90 466,102 454,102" fill="#e91e63"/></g>
+  </g>
+
+  <!-- Capivara -->
+  <g id="capivara" class="anim-bounce">
+    <!-- Cauda -->
+    <ellipse cx="160" cy="315" rx="18" ry="10" fill="#7b5a3a" transform="rotate(-20 160 315)"/>
+
+    <!-- Corpo -->
+    <ellipse cx="260" cy="310" rx="130" ry="90" fill="#8b6a4a"/>
+    <ellipse cx="260" cy="310" rx="126" ry="86" fill="#8f6e4f"/>
+    <!-- Barriga -->
+    <ellipse cx="260" cy="340" rx="90" ry="55" fill="#a9825f" opacity="0.7"/>
+
+    <!-- Cabeça -->
+    <g transform="translate(320 230)">
+      <ellipse cx="40" cy="20" rx="70" ry="50" fill="#8b6a4a"/>
+      <!-- Focinho -->
+      <ellipse cx="80" cy="35" rx="24" ry="18" fill="#6d5137"/>
+      <circle cx="95" cy="32" r="4.5" fill="#2d1f14"/>
+      <path d="M74 42 C80 52, 92 52, 98 42" fill="none" stroke="#2d1f14" stroke-width="3" stroke-linecap="round"/>
+      <!-- Olho -->
+      <circle cx="58" cy="14" r="7" fill="#1a1a1a"/>
+      <circle cx="60" cy="12" r="2" fill="#fff"/>
+      <!-- Orelhas -->
+      <ellipse cx="23" cy="-18" rx="14" ry="12" fill="#7b5a3a"/>
+      <ellipse cx="50" cy="-22" rx="13" ry="11" fill="#7b5a3a"/>
+    </g>
+
+    <!-- Pernas -->
+    <g stroke="#4a3a2a" stroke-width="10" stroke-linecap="round" fill="none">
+      <!-- Frente esquerda -->
+      <g class="anim-stepA" transform="translate(240 340)">
+        <path d="M0 0 L-24 36"/>
+      </g>
+      <!-- Frente direita -->
+      <g class="anim-stepB" transform="translate(300 340)">
+        <path d="M0 0 L20 44"/>
+      </g>
+      <!-- Traseira esquerda -->
+      <g class="anim-stepB" transform="translate(210 352)">
+        <path d="M0 0 L-18 42"/>
+      </g>
+      <!-- Traseira direita -->
+      <g class="anim-stepA" transform="translate(280 355)">
+        <path d="M0 0 L18 40"/>
+      </g>
+    </g>
+
+    <!-- Figurino de frevo, colete colorido -->
+    <g transform="translate(200 280)">
+      <path d="M0 0 C25 -20, 95 -20, 120 0 L120 50 C95 70, 25 70, 0 50 Z" fill="#1e88e5" opacity="0.95"/>
+      <path d="M0 20 L120 20" stroke="#ffeb3b" stroke-width="8"/>
+      <path d="M0 40 L120 40" stroke="#e53935" stroke-width="8"/>
+      <path d="M60 -6 L60 66" stroke="#43a047" stroke-width="10"/>
+    </g>
+
+    <!-- Braço segurando a sombrinha -->
+    <g transform="translate(180 290)">
+      <g class="anim-stepA">
+        <path d="M0 0 L-40 -40" stroke="#4a3a2a" stroke-width="10" stroke-linecap="round"/>
+      </g>
+
+      <!-- Haste da sombrinha -->
+      <g class="anim-sway" transform="translate(-40 -40)">
+        <rect x="-6" y="-6" width="12" height="84" rx="6" fill="#5d4037" transform="rotate(-30)"/>
+        <!-- Ponto de articulação -->
+        <circle cx="0" cy="0" r="6" fill="#795548"/>
+
+        <!-- Sombrinha multicolorida -->
+        <g transform="translate(-36 -36) rotate(-30)">
+          <g clip-path="url(#umbrellaClip)">
+            <circle cx="0" cy="0" r="58" fill="#ffffff"/>
+            <!-- 8 painéis -->
+            <path d="M0 0 L58 0 A58 58 0 0 1 41 41 Z" fill="#e53935"/>
+            <path d="M0 0 L41 41 A58 58 0 0 1 0 58 Z" fill="#fbc02d"/>
+            <path d="M0 0 L0 58 A58 58 0 0 1 -41 41 Z" fill="#43a047"/>
+            <path d="M0 0 L-41 41 A58 58 0 0 1 -58 0 Z" fill="#1e88e5"/>
+            <path d="M0 0 L-58 0 A58 58 0 0 1 -41 -41 Z" fill="#e53935"/>
+            <path d="M0 0 L-41 -41 A58 58 0 0 1 0 -58 Z" fill="#fbc02d"/>
+            <path d="M0 0 L0 -58 A58 58 0 0 1 41 -41 Z" fill="#43a047"/>
+            <path d="M0 0 L41 -41 A58 58 0 0 1 58 0 Z" fill="#1e88e5"/>
+          </g>
+          <!-- Ponteiras -->
+          <circle cx="0" cy="0" r="6" fill="#212121"/>
+          <circle cx="58" cy="0" r="4" fill="#212121"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Braço livre -->
+    <g transform="translate(305 280)">
+      <g class="anim-stepB">
+        <path d="M0 0 L36 -28" stroke="#4a3a2a" stroke-width="10" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+</svg>
