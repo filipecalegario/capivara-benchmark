@@ -1,0 +1,93 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#FFE5B4"/>
+  
+  <!-- Confetti particles -->
+  <circle cx="50" cy="50" r="3" fill="#FF6B6B" opacity="0.8"/>
+  <circle cx="350" cy="80" r="4" fill="#4ECDC4" opacity="0.8"/>
+  <circle cx="100" cy="100" r="3" fill="#FFE66D" opacity="0.8"/>
+  <circle cx="300" cy="40" r="3" fill="#FF6B6B" opacity="0.8"/>
+  <circle cx="250" cy="90" r="4" fill="#95E1D3" opacity="0.8"/>
+  
+  <!-- Frevo Umbrella -->
+  <g transform="translate(200, 80)">
+    <!-- Umbrella top -->
+    <path d="M -60 0 Q -60 -40, -30 -50 Q 0 -55, 30 -50 Q 60 -40, 60 0 Z" 
+          fill="#FF6B6B" stroke="#C44569" stroke-width="2"/>
+    <path d="M -60 0 Q -60 -40, -30 -50 Q 0 -55, 30 -50 Q 60 -40, 60 0 Z" 
+          fill="#FFE66D" opacity="0.5"/>
+    <!-- Umbrella stripes -->
+    <path d="M -40 -25 L -40 -5" stroke="#FFF" stroke-width="3"/>
+    <path d="M -20 -35 L -20 -5" stroke="#FFF" stroke-width="3"/>
+    <path d="M 0 -40 L 0 -5" stroke="#FFF" stroke-width="3"/>
+    <path d="M 20 -35 L 20 -5" stroke="#FFF" stroke-width="3"/>
+    <path d="M 40 -25 L 40 -5" stroke="#FFF" stroke-width="3"/>
+    <!-- Umbrella handle -->
+    <line x1="0" y1="0" x2="0" y2="60" stroke="#8B4513" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="65" r="5" fill="#8B4513"/>
+  </g>
+  
+  <!-- Capybara Body -->
+  <g transform="translate(200, 250)">
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="80" ry="60" fill="#8B6F47" stroke="#6B5637" stroke-width="2"/>
+    
+    <!-- Belly -->
+    <ellipse cx="0" cy="10" rx="50" ry="35" fill="#A0845C"/>
+    
+    <!-- Head -->
+    <ellipse cx="-50" cy="-30" rx="45" ry="40" fill="#8B6F47" stroke="#6B5637" stroke-width="2"/>
+    
+    <!-- Snout -->
+    <ellipse cx="-75" cy="-25" rx="20" ry="15" fill="#8B6F47" stroke="#6B5637" stroke-width="2"/>
+    <ellipse cx="-78" cy="-25" rx="8" ry="6" fill="#6B5637"/>
+    
+    <!-- Eyes (happy and dancing) -->
+    <ellipse cx="-55" cy="-35" rx="8" ry="12" fill="#FFF"/>
+    <ellipse cx="-55" cy="-33" rx="5" ry="8" fill="#000"/>
+    <ellipse cx="-53" cy="-35" rx="2" ry="3" fill="#FFF"/>
+    
+    <!-- Ears -->
+    <ellipse cx="-30" cy="-55" rx="12" ry="15" fill="#8B6F47" stroke="#6B5637" stroke-width="2"/>
+    <ellipse cx="-70" cy="-55" rx="12" ry="15" fill="#8B6F47" stroke="#6B5637" stroke-width="2"/>
+    
+    <!-- Front legs (dancing position) -->
+    <ellipse cx="-30" cy="40" rx="15" ry="25" fill="#8B6F47" stroke="#6B5637" stroke-width="2" transform="rotate(-20 -30 40)"/>
+    <ellipse cx="20" cy="35" rx="15" ry="25" fill="#8B6F47" stroke="#6B5637" stroke-width="2" transform="rotate(15 20 35)"/>
+    
+    <!-- Back legs (dancing position) -->
+    <ellipse cx="-20" cy="50" rx="18" ry="30" fill="#8B6F47" stroke="#6B5637" stroke-width="2" transform="rotate(-10 -20 50)"/>
+    <ellipse cx="40" cy="45" rx="18" ry="30" fill="#8B6F47" stroke="#6B5637" stroke-width="2" transform="rotate(25 40 45)"/>
+    
+    <!-- Arms raised dancing -->
+    <ellipse cx="-90" cy="-10" rx="12" ry="35" fill="#8B6F47" stroke="#6B5637" stroke-width="2" transform="rotate(-45 -90 -10)"/>
+    <ellipse cx="70" cy="-15" rx="12" ry="35" fill="#8B6F47" stroke="#6B5637" stroke-width="2" transform="rotate(60 70 -15)"/>
+    
+    <!-- Hands -->
+    <circle cx="-105" cy="-35" r="10" fill="#8B6F47" stroke="#6B5637" stroke-width="2"/>
+    <circle cx="85" cy="-40" r="10" fill="#8B6F47" stroke="#6B5637" stroke-width="2"/>
+    
+    <!-- Tail wagging -->
+    <path d="M 70 20 Q 90 10, 85 -5 Q 80 -15, 90 -20" 
+          fill="none" stroke="#6B5637" stroke-width="8" stroke-linecap="round"/>
+    
+    <!-- Dancing motion lines -->
+    <path d="M -120 -20 Q -130 -25, -125 -35" fill="none" stroke="#FF6B6B" stroke-width="2" opacity="0.6"/>
+    <path d="M 100 -25 Q 110 -30, 105 -40" fill="none" stroke="#4ECDC4" stroke-width="2" opacity="0.6"/>
+    <path d="M -10 80 Q -15 90, -5 95" fill="none" stroke="#FFE66D" stroke-width="2" opacity="0.6"/>
+  </g>
+  
+  <!-- Ground -->
+  <ellipse cx="200" cy="350" rx="150" ry="20" fill="#90EE90" opacity="0.3"/>
+  
+  <!-- Music notes -->
+  <g transform="translate(50, 300)">
+    <text font-family="Arial" font-size="24" fill="#FF6B6B" opacity="0.7">♪</text>
+  </g>
+  <g transform="translate(320, 280)">
+    <text font-family="Arial" font-size="20" fill="#4ECDC4" opacity="0.7">♫</text>
+  </g>
+  <g transform="translate(100, 320)">
+    <text font-family="Arial" font-size="22" fill="#FFE66D" opacity="0.7">♪</text>
+  </g>
+</svg>
