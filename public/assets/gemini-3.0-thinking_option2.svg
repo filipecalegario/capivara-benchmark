@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .capybara-body { fill: #A06D3A; }
+      .capybara-face { fill: #BF8751; }
+      .capybara-nose { fill: #5C3A21; }
+      .capybara-eye { fill: #000; }
+      .capybara-ear { fill: #8B5A2B; }
+      .hat { fill: #E53935; stroke: #D32F2F; stroke-width: 2; }
+      .hat-band { fill: #FFEB3B; }
+      .umbrella-fabric-red { fill: #EF5350; }
+      .umbrella-fabric-yellow { fill: #FFCA28; }
+      .umbrella-fabric-blue { fill: #42A5F5; }
+      .umbrella-handle { fill: #795548; stroke: #3E2723; stroke-width: 2; }
+      .frevo-shirt { fill: #00BCD4; }
+      .frevo-pants { fill: #FFEB3B; }
+      .frevo-collar { fill: #FF8A65; }
+      .background-wave-orange { fill: #FFB74D; opacity: 0.7; }
+      .background-wave-green { fill: #81C784; opacity: 0.7; }
+      .background-wave-blue { fill: #64B5F6; opacity: 0.7; }
+      .building-red { fill: #E57373; }
+      .building-yellow { fill: #FFF176; }
+      .window { fill: #BBDEFB; }
+      .palm-tree-trunk { fill: #8D6E63; }
+      .palm-tree-leaf { fill: #66BB6A; }
+    </style>
+  </defs>
+
+  <path d="M0,300 C150,250 250,350 350,300 C450,250 600,300 600,300 V600 H0 Z" class="background-wave-orange"/>
+  <path d="M0,350 C100,380 200,300 300,350 C400,400 500,300 600,350 V600 H0 Z" class="background-wave-green"/>
+  <path d="M0,400 C100,450 200,380 300,400 C400,420 500,380 600,400 V600 H0 Z" class="background-wave-blue"/>
+
+  <rect x="50" y="300" width="80" height="100" class="building-red"/>
+  <rect x="70" y="350" width="40" height="30" class="window"/>
+  <rect x="150" y="280" width="70" height="120" class="building-yellow"/>
+  <rect x="170" y="330" width="30" height="20" class="window"/>
+  <path d="M500,250 C520,200 540,220 560,200 L550,280 L500,280 Z" class="building-red"/>
+  <rect x="520" y="240" width="20" height="30" class="window"/>
+
+  <path d="M480,200 C485,250 490,300 485,350" class="palm-tree-trunk" stroke-width="8"/>
+  <path d="M485,200 Q460,180 440,220 Q470,190 480,180 Z" class="palm-tree-leaf"/>
+  <path d="M485,200 Q510,180 530,220 Q500,190 490,180 Z" class="palm-tree-leaf"/>
+  <path d="M485,200 Q470,170 485,150 Q500,170 485,200 Z" class="palm-tree-leaf"/>
+
+
+  <path d="M250,350 C200,300 180,200 250,150 C320,100 350,200 350,300 C350,400 280,420 250,350 Z" class="capybara-body"/>
+  
+  <path d="M300,200 C320,180 340,150 350,130" class="capybara-body" stroke="#3E2723" stroke-width="15" stroke-linecap="round"/>
+  <line x1="350" y1="130" x2="380" y2="100" class="umbrella-handle" stroke-width="4"/>
+  <g transform="translate(380,100) rotate(-15)">
+    <path d="M0,0 L-30,-30 A40,40 0 0,1 -10,-40 Z" class="umbrella-fabric-red"/>
+    <path d="M0,0 L-10,-40 A40,40 0 0,1 10,-40 Z" class="umbrella-fabric-yellow"/>
+    <path d="M0,0 L10,-40 A40,40 0 0,1 30,-30 Z" class="umbrella-fabric-blue"/>
+    <path d="M0,0 L30,-30 A40,40 0 0,1 40,0 Z" class="umbrella-fabric-red"/>
+  </g>
+
+  <path d="M220,200 C200,170 180,150 160,180" class="capybara-body" stroke="#3E2723" stroke-width="15" stroke-linecap="round"/>
+  <circle cx="160" cy="180" r="10" class="capybara-body"/>
+
+  <ellipse cx="270" cy="150" rx="60" ry="50" class="capybara-face"/>
+  <ellipse cx="270" cy="150" rx="60" ry="50" class="capybara-face"/>
+  <circle cx="270" cy="150" r="55" class="capybara-face"/>
+  <rect x="250" y="170" width="40" height="20" rx="10" class="capybara-nose"/>
+  <circle cx="260" cy="175" r="3" class="capybara-eye"/>
+  <circle cx="280" cy="175" r="3" class="capybara-eye"/>
+  <path d="M265,190 Q270,195 275,190" stroke="#000" stroke-width="2" fill="none"/>
+  <ellipse cx="230" cy="130" rx="15" ry="10" class="capybara-ear"/>
+  <ellipse cx="310" cy="130" rx="15" ry="10" class="capybara-ear"/>
+
+  <path d="M250,250 C230,230 220,200 250,190 C280,180 300,200 280,220 C270,230 250,250 250,250 Z" class="frevo-shirt"/>
+  <path d="M250,250 Q230,270 200,270 C200,290 220,300 250,300 C280,300 300,290 300,270 Q270,270 250,250 Z" class="frevo-collar"/>
+  <circle cx="250" cy="280" r="5" fill="#FFEB3B"/>
+  <circle cx="220" cy="275" r="5" fill="#E53935"/>
+  <circle cx="280" cy="275" r="5" fill="#43A047"/>
+
+  <path d="M250,320 C220,350 200,400 220,420 L280,420 C300,400 280,350 250,320 Z" class="frevo-pants"/>
+  
+  <path d="M230,420 C220,440 210,460 220,470 L240,470 C250,460 240,440 230,420 Z" class="capybara-body"/>
+  <path d="M270,420 C280,440 290,460 280,470 L260,470 C250,460 260,440 270,420 Z" class="capybara-body"/>
+
+  <g transform="translate(500, 500)" scale="0.1">
+    <rect width="80" height="100" rx="10" ry="10" fill="#E0E0E0"/>
+    <path d="M80,20 L60,0 H0 V100 H80 V20 Z M50,50 L30,50 L30,70 L50,70 L50,80 L60,60 L50,40 L50,50 Z" fill="#616161"/>
+    <text x="5" y="90" font-family="Arial, sans-serif" font-size="20" fill="#424242">SVG</text>
+  </g>
+</svg>

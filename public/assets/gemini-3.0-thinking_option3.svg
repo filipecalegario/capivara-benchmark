@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .capybara-fill { fill: #A06D3A; }
+      .capybara-stroke { stroke: #5C3A21; stroke-width: 4; }
+      .capybara-ear-inner { fill: #C89666; }
+      .capybara-nose-detail { fill: #795548; }
+      .capybara-eye-fill { fill: #000000; }
+      .capybara-eye-highlight { fill: #FFFFFF; }
+      .frevo-dress-main { fill: #FFEB3B; }
+      .frevo-dress-accent { fill: #EF5350; }
+      .frevo-dress-ruffle { fill: #42A5F5; }
+      .frevo-umbrella-main { fill: #E53935; }
+      .frevo-umbrella-accent1 { fill: #FFD600; }
+      .frevo-umbrella-accent2 { fill: #1E88E5; }
+      .frevo-umbrella-handle { fill: #795548; stroke: #3E2723; stroke-width: 4; }
+      .background-gradient-start { stop-color: #B2EBF2; }
+      .background-gradient-end { stop-color: #E0F2F7; }
+      .floor-color { fill: #CFD8DC; }
+      .music-note-color { fill: #64B5F6; }
+      .confetti-color1 { fill: #FFEB3B; }
+      .confetti-color2 { fill: #E57373; }
+      .confetti-color3 { fill: #81C784; }
+    </style>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" class="background-gradient-start" />
+      <stop offset="100%" class="background-gradient-end" />
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="600" height="600" fill="url(#backgroundGradient)" />
+  <rect x="0" y="450" width="600" height="150" class="floor-color" />
+
+  <circle cx="100" cy="100" r="10" class="confetti-color1" />
+  <rect x="50" y="150" width="10" height="10" class="confetti-color2" transform="rotate(20 55 155)"/>
+  <polygon points="150,50 160,70 140,70" class="confetti-color3" />
+  <path d="M450,80 Q460,70 470,80 Q460,90 450,80 M470,80 L470,100 Q470,110 460,110 L460,110" class="music-note-color" />
+  <circle cx="500" cy="150" r="10" class="confetti-color1" />
+  <rect x="550" y="100" width="10" height="10" class="confetti-color2" transform="rotate(-30 555 105)"/>
+
+  <g transform="translate(250, 200)">
+    <path d="M-50,150 C-80,100 -60,0 0,-50 C60,0 80,100 50,150 Z" class="capybara-fill capybara-stroke" />
+    
+    <path d="M-30,150 C-40,180 -30,220 -10,230 L0,230 L-10,180 Z" class="capybara-fill capybara-stroke" />
+    <path d="M-10,230 C-20,240 -10,250 10,250 C30,250 20,240 10,230 Z" class="capybara-fill capybara-stroke" />
+
+    <path d="M40,150 C30,180 40,220 60,230 L70,230 L60,180 Z" class="capybara-fill capybara-stroke" />
+    <path d="M60,230 C50,240 60,250 80,250 C100,250 90,240 80,230 Z" class="capybara-fill capybara-stroke" />
+
+    <path d="M0,50 Q-40,20 -40,-30 C-40,-60 -20,-70 0,-60 L0,-100" class="capybara-fill capybara-stroke" stroke-linecap="round"/>
+    
+    <g transform="translate(0, -100) rotate(-15)">
+      <path d="M0,0 L-30,-30 A40,40 0 0,1 -10,-40 Z" class="frevo-umbrella-main"/>
+      <path d="M0,0 L-10,-40 A40,40 0 0,1 10,-40 Z" class="frevo-umbrella-accent1"/>
+      <path d="M0,0 L10,-40 A40,40 0 0,1 30,-30 Z" class="frevo-umbrella-accent2"/>
+      <path d="M0,0 L30,-30 A40,40 0 0,1 40,0 Z" class="frevo-umbrella-main"/>
+      <line x1="0" y1="0" x2="0" y2="60" class="frevo-umbrella-handle"/>
+    </g>
+
+    <path d="M30,50 Q70,20 70,-30 C70,-60 50,-70 30,-60" class="capybara-fill capybara-stroke" stroke-linecap="round"/>
+
+    <ellipse cx="0" cy="-20" rx="40" ry="35" class="capybara-fill capybara-stroke" />
+    <ellipse cx="-25" cy="-45" rx="10" ry="8" class="capybara-fill capybara-stroke" />
+    <circle cx="-25" cy="-45" r="5" class="capybara-ear-inner"/>
+    <ellipse cx="25" cy="-45" rx="10" ry="8" class="capybara-fill capybara-stroke" />
+    <circle cx="25" cy="-45" r="5" class="capybara-ear-inner"/>
+
+    <path d="M-15,0 C-20,10 20,10 15,0 L10,-5 Q0,-10 -10,-5 Z" class="capybara-fill capybara-stroke" />
+    <rect x="-10" y="2" width="20" height="5" rx="2" class="capybara-nose-detail" />
+    
+    <circle cx="-10" cy="-15" r="3" class="capybara-eye-fill" />
+    <circle cx="-9" cy="-16" r="1" class="capybara-eye-highlight" />
+    <circle cx="10" cy="-15" r="3" class="capybara-eye-fill" />
+    <circle cx="11" cy="-16" r="1" class="capybara-eye-highlight" />
+
+    <path d="M-30,40 C-50,60 -50,100 0,120 C50,100 50,60 30,40 Z" class="frevo-dress-main capybara-stroke" />
+    <path d="M-40,50 Q-30,70 0,75 Q30,70 40,50 Z" class="frevo-dress-accent capybara-stroke" />
+    <path d="M-45,60 Q-35,80 0,85 Q35,80 45,60 Z" class="frevo-dress-ruffle capybara-stroke" />
+    <path d="M-30,100 Q-20,120 0,125 Q20,120 30,100 Z" class="frevo-dress-ruffle capybara-stroke" />
+  </g>
+</svg>

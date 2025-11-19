@@ -18,6 +18,7 @@ interface GitHubContentItem {
   type: "file" | "dir";
   download_url: string | null;
   size: number;
+  lastCommitDate?: string; // Data do último commit do arquivo
 }
 
 interface RetryImageProps {
@@ -106,13 +107,45 @@ const RetryImage = ({ src, alt, className, owner, repo, branch, path }: RetryIma
   );
 };
 
+// Função para buscar a data do último commit de um arquivo
+const fetchFileCommitDate = async (
+  owner: string,
+  repo: string,
+  path: string,
+  branch: string
+): Promise<string | undefined> => {
+  try {
+    const url = `https://api.github.com/repos/${owner}/${repo}/commits?path=${path}&page=1&per_page=1&sha=${branch}`;
+    const res = await fetch(url, {
+      headers: {
+        "Accept": "application/vnd.github+json",
+      },
+    });
+
+    if (!res.ok) {
+      console.warn(`Failed to fetch commit date for ${path}: ${res.status}`);
+      return undefined;
+    }
+
+    const commits = await res.json();
+    if (commits && commits.length > 0 && commits[0].commit?.committer?.date) {
+      return commits[0].commit.committer.date;
+    }
+
+    return undefined;
+  } catch (error) {
+    console.warn(`Error fetching commit date for ${path}:`, error);
+    return undefined;
+  }
+};
 
 export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: GithubSvgGalleryProps) => {
   const [owner, repo] = ownerRepo.split("/");
 
-  const { data, isLoading, isError } = useQuery<{ items: GitHubContentItem[] } | GitHubContentItem[], Error>({
+  const { data, isLoading, isError } = useQuery<GitHubContentItem[], Error>({
     queryKey: ["github-folder", ownerRepo, folderPath, branch],
     queryFn: async () => {
+      // Buscar lista de arquivos
       const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}?ref=${branch}`;
       const res = await fetch(url, {
         headers: {
@@ -123,18 +156,34 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
       if (!res.ok) {
         throw new Error(`GitHub API error ${res.status}: ${res.statusText}`);
       }
-      return res.json();
+
+      const items = await res.json();
+      const arr = Array.isArray(items) ? items : items?.items || [];
+
+      // Filtrar apenas arquivos SVG
+      const svgFiles = (arr as GitHubContentItem[]).filter(
+        (it) => it.type === "file" && /\.svg$/i.test(it.name)
+      );
+
+      // Buscar datas de commit em paralelo para todos os arquivos SVG
+      const filesWithDates = await Promise.all(
+        svgFiles.map(async (file) => {
+          const commitDate = await fetchFileCommitDate(owner, repo, file.path, branch);
+          return {
+            ...file,
+            lastCommitDate: commitDate,
+          };
+        })
+      );
+
+      return filesWithDates;
     },
-    staleTime: 1000 * 60, // 1 min
+    staleTime: 1000 * 60 * 5, // 5 min (cache mais longo já que estamos fazendo mais chamadas)
   });
 
   const svgs = useMemo(() => {
-    const arr = Array.isArray(data) ? data : (data as { items: GitHubContentItem[] })?.items || [];
-    const files = (arr as GitHubContentItem[]).filter(
-      (it) => it.type === "file" && /\.svg$/i.test(it.name)
-    );
-    // Sort by name for stable order (fallback)
-    return files.sort((a, b) => a.name.localeCompare(b.name));
+    // Os dados já vêm filtrados e enriquecidos com lastCommitDate
+    return data || [];
   }, [data]);
 
   // Extract titles (filename without .svg)
@@ -165,16 +214,19 @@ export const GithubSvgGallery = ({ ownerRepo, folderPath, branch = "main" }: Git
   }, [capCounts]);
 
   const sortedSvgs = useMemo(() => {
-    // Sort by up_count desc, then by name asc
+    // Ordenar por data de commit (mais recentes primeiro)
     return [...svgs].sort((a, b) => {
-      const ta = a.name.replace(/\.svg$/i, "");
-      const tb = b.name.replace(/\.svg$/i, "");
-      const ca = countsMap[ta] ?? 0;
-      const cb = countsMap[tb] ?? 0;
-      if (cb !== ca) return cb - ca;
+      // Se ambos têm data, ordenar por data decrescente (mais recente primeiro)
+      if (a.lastCommitDate && b.lastCommitDate) {
+        return new Date(b.lastCommitDate).getTime() - new Date(a.lastCommitDate).getTime();
+      }
+      // Se apenas um tem data, o que tem data vem primeiro
+      if (a.lastCommitDate) return -1;
+      if (b.lastCommitDate) return 1;
+      // Se nenhum tem data, ordenar alfabeticamente por nome
       return a.name.localeCompare(b.name);
     });
-  }, [svgs, countsMap]);
+  }, [svgs]);
 
 const [selectedTitle, setSelectedTitle] = useState<string | null>(null);
 const [selectedUrl, setSelectedUrl] = useState<string | null>(null);
